@@ -1,0 +1,111 @@
+@import "../../styles/variables";
+@import "../../styles/size";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 563px;
+  height: 575px;
+  margin-left: 147px;
+  margin-right: auto;
+
+  @include size(mobile) {
+    width: 300px;
+  }
+
+  @include size(tablet) {
+    margin-top: 240px;
+    width: 436px;
+  }
+
+  @include size(desktop) {
+    margin-top: 117px;
+    margin-left: auto;
+    margin-right: 110px;
+  }
+}
+
+.formHeader {
+  font-family: "Apercu Arabic Pro";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 52px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  @include size(tablet) {
+    margin-left: 86px;
+    font-size: 28px;
+  }
+}
+
+.formReach {
+  display: flex;
+  flex-direction: column;
+  width: 563px;
+  height: 575px;
+  margin-left: 147px;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* margin-top: 25px;
+  margin-left: 29px; */
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  color: black;
+
+  /* @include size(tablet) {
+    margin-left: 86px;
+    font-size: 12px;
+    line-height: 14px;
+  } */
+}
+
+.input {
+  width: auto;
+  height: 93px;
+  margin-top: 8px;
+  margin-bottom: auto;
+  /* margin-top: 12px;
+  padding-left: 20px;
+  padding-right: 20px; */
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  box-sizing: border-box;
+  border-radius: 10px;
+
+  @include size(tablet) {
+    width: 225px;
+  }
+
+  @include size(desktop) {
+    width: 557px;
+  }
+}
+::placeholder {
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  color: gray;
+}
+
+.button {
+  text-align: center;
+  width: 218px;
+  height: 73px;
+  left: 150px;
+  top: 681px;
+
+  background: #fad34f;
+  border-radius: 500px;
+}
