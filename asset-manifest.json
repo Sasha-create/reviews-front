@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/reviews-front/static/css/main.30af8ae6.chunk.css",
+    "main.js": "/reviews-front/static/js/main.d65baa10.chunk.js",
+    "main.js.map": "/reviews-front/static/js/main.d65baa10.chunk.js.map",
+    "runtime-main.js": "/reviews-front/static/js/runtime-main.0126cca1.js",
+    "runtime-main.js.map": "/reviews-front/static/js/runtime-main.0126cca1.js.map",
+    "static/css/2.bc922b9c.chunk.css": "/reviews-front/static/css/2.bc922b9c.chunk.css",
+    "static/js/2.19df48ea.chunk.js": "/reviews-front/static/js/2.19df48ea.chunk.js",
+    "static/js/2.19df48ea.chunk.js.map": "/reviews-front/static/js/2.19df48ea.chunk.js.map",
+    "index.html": "/reviews-front/index.html",
+    "static/css/2.bc922b9c.chunk.css.map": "/reviews-front/static/css/2.bc922b9c.chunk.css.map",
+    "static/css/main.30af8ae6.chunk.css.map": "/reviews-front/static/css/main.30af8ae6.chunk.css.map",
+    "static/js/2.19df48ea.chunk.js.LICENSE.txt": "/reviews-front/static/js/2.19df48ea.chunk.js.LICENSE.txt",
+    "static/media/Container.module.scss": "/reviews-front/static/media/city-map.2ce9b1b1.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0126cca1.js",
+    "static/css/2.bc922b9c.chunk.css",
+    "static/js/2.19df48ea.chunk.js",
+    "static/css/main.30af8ae6.chunk.css",
+    "static/js/main.d65baa10.chunk.js"
+  ]
+}
