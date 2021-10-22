@@ -86,9 +86,9 @@ class ContactForm extends Component {
               />
             </label>
             <br />
-            <button className={s.button} type="submit">
+            {/* <button className={s.button} type="submit">
               Send message
-            </button>
+            </button> */}
           </form>
         </div>
       </div>
