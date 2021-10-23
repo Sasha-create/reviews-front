@@ -4,14 +4,51 @@ import Container from "./components/Container";
 import Footer from "./components/Footer";
 
 class App extends Component {
+  // state = {
+  //   contacts: [],
+  //   filter: "",
+  // };
+
+  // handleAddContact = (newContact) =>
+  //   this.setState(({ contacts }) => ({
+  //     contacts: [...contacts, newContact],
+  //   }));
+
+  // handleCheckUnique = (name) => {
+  //   const { contacts } = this.state;
+  //   const isExistContact = !!contacts.find((contact) => contact.name === name);
+  //   isExistContact && alert("Contact is already exist");
+  //   return !isExistContact;
+  // };
+
+  // handleRemoveContact = (id) => {
+  //   this.setState(({ contacts }) => ({
+  //     contacts: contacts.filter((contact) => contact.id !== id),
+  //   }));
+  // };
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.state.contacts !== prevState.contacts)
+  //     localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
+  // }
+
+  // componentDidMount() {
+  //   const contacts = localStorage.getItem("contacts");
+  //   const parsedContacts = JSON.parse(contacts);
+
+  //   if (parsedContacts) {
+  //     this.setState({ contacts: parsedContacts });
+  //   }
+  // }
   render() {
     return (
-      <>
-        <Container>
-          <ContactForm />
-        </Container>
+      <Container>
+        <ContactForm
+        // onAdd={this.handleAddContact}
+        // onCheckUnique={this.handleCheckUnique}
+        />
         <Footer />
-      </>
+      </Container>
     );
   }
 }
