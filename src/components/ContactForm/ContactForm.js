@@ -1,55 +1,82 @@
-import { Component } from "react";
-import { v4 as uuid } from "uuid";
+import React, { useState } from "react";
+import { CSSTransition } from "react-transition-group";
+import { useDispatch } from "react-redux";
+import { contactsOperations } from "../../redux/contacts/index";
+import Button from "../Button/Button";
 import s from "./ContactForm.module.scss";
+import fadeAlert from "../../fadeModules/fadeContactFormAlert.module.css";
 
-const INITIAL_STATE = {
-  email: "",
-  name: "",
-  message: "",
-};
+export default function ContactForm() {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+  const [alert, setAlert] = useState(false);
 
-class ContactForm extends Component {
-  state = INITIAL_STATE;
+  const dispatch = useDispatch();
+  // const contacts = useSelector(contactsSelectors.getAllContacts);
 
-  handleInputChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    this.setState({
-      [name]: value,
-    });
-  };
+    switch (name) {
+      case "name":
+        setName(value);
+        break;
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const { name, email, message } = this.state;
-    const { onAdd } = this.props;
-    const isValidateForm = this.validateForm();
-    if (!isValidateForm) return;
-    onAdd({ id: uuid(), name, email, message });
-    this.resetForm();
-  };
+      case "email":
+        setEmail(value);
+        break;
 
-  validateForm = () => {
-    const { name, email, message } = this.state;
-    const { onCheckUnique } = this.props;
-    if (!name || !email || !message) {
-      alert("Some field is empty");
-      return false;
+      case "message":
+        setMessage(value);
+        break;
+
+      default:
+        return;
     }
-    return onCheckUnique(name);
   };
 
-  resetForm = () => {
-    this.setState(INITIAL_STATE);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const isValidateForm = validateForm();
+    if (!isValidateForm) return;
+    dispatch(contactsOperations.fetchContacts(name, email, message));
+    resetForm();
   };
 
-  render() {
-    const { name, email, message } = this.state;
-    return (
+  const handleAlert = (message) => {
+    setAlert(true);
+    setMessage(message);
+    setTimeout(() => setAlert(false), 2000);
+  };
+
+  const validateForm = () => {
+    if (!name || !email || !message) {
+      handleAlert("Some field is empty");
+      return;
+    }
+  };
+
+  const resetForm = () => {
+    setEmail("");
+    setName("");
+    setMessage("");
+  };
+
+  return (
+    <>
+      <CSSTransition
+        in={alert}
+        timeout={250}
+        classNames={fadeAlert}
+        unmountOnExit
+      >
+        <p className={fadeAlert.alert}>{message}</p>
+      </CSSTransition>
       <div className={s.formReach}>
         <h1 className={s}>Reach out to us!</h1>
         <div className={s.formInputs}>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <label className={s.label}>
               <br />
               <input
@@ -58,7 +85,7 @@ class ContactForm extends Component {
                 value={name}
                 name="name"
                 placeholder="Your name *"
-                onChange={this.handleInputChange}
+                onChange={handleInputChange}
               />
             </label>
             <br />
@@ -70,7 +97,7 @@ class ContactForm extends Component {
                 value={email}
                 name="email"
                 placeholder="Your e-mail *"
-                onChange={this.handleInputChange}
+                onChange={handleInputChange}
               />
             </label>
             <br />
@@ -82,18 +109,16 @@ class ContactForm extends Component {
                 value={message}
                 name="message"
                 placeholder="Your message *"
-                onChange={this.handleInputChange}
+                onChange={handleInputChange}
               />
             </label>
             <br />
-            {/* <button className={s.button} type="submit">
-              Send message
-            </button> */}
+            <div className={s.button}>
+              <Button />
+            </div>
           </form>
         </div>
       </div>
-    );
-  }
+    </>
+  );
 }
-
-export default ContactForm;
