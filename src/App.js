@@ -8,45 +8,45 @@ class App extends Component {
     contacts: [],
   };
 
-  handleAddContact = (newContact) =>
-    this.setState(({ contacts }) => ({
-      contacts: [...contacts, newContact],
-    }));
+  // handleAddContact = (newContact) =>
+  //   this.setState(({ contacts }) => ({
+  //     contacts: [...contacts, newContact],
+  //   }));
 
-  handleCheckUnique = (name) => {
-    const { contacts } = this.state;
-    const isExistContact = !!contacts.find((contact) => contact.name === name);
-    isExistContact && alert("Contact is already exist");
-    return !isExistContact;
-  };
+  // handleCheckUnique = (name) => {
+  //   const { contacts } = this.state;
+  //   const isExistContact = !!contacts.find((contact) => contact.name === name);
+  //   isExistContact && alert("Contact is already exist");
+  //   return !isExistContact;
+  // };
 
-  handleRemoveContact = (id) => {
-    this.setState(({ contacts }) => ({
-      contacts: contacts.filter((contact) => contact.id !== id),
-    }));
-  };
+  // handleRemoveContact = (id) => {
+  //   this.setState(({ contacts }) => ({
+  //     contacts: contacts.filter((contact) => contact.id !== id),
+  //   }));
+  // };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.contacts !== prevState.contacts)
-      localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.state.contacts !== prevState.contacts)
+  //     localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
+  // }
 
-  componentDidMount() {
-    const contacts = localStorage.getItem("contacts");
-    const parsedContacts = JSON.parse(contacts);
+  // componentDidMount() {
+  //   const contacts = localStorage.getItem("contacts");
+  //   const parsedContacts = JSON.parse(contacts);
 
-    if (parsedContacts) {
-      this.setState({ contacts: parsedContacts });
-    }
-  }
+  //   if (parsedContacts) {
+  //     this.setState({ contacts: parsedContacts });
+  //   }
+  // }
 
   render() {
     return (
       <>
         <Container>
           <ContactForm
-            onAdd={this.handleAddContact}
-            onCheckUnique={this.handleCheckUnique}
+          // onAdd={this.handleAddContact}
+          // onCheckUnique={this.handleCheckUnique}
           />
         </Container>
         <Footer />
