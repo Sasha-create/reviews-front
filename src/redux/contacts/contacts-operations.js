@@ -2,13 +2,13 @@
 import axios from "axios";
 import * as actions from "./contacts-actions";
 
-axios.defaults.BASE_URL = "https://reviews-server1.herokuapp.com";
+axios.defaults.baseURL = "https://reviews-server1.herokuapp.com/api";
 
-const fetchContacts = () => async (dispatch) => {
+const fetchContacts = (credentials) => async (dispatch) => {
   dispatch(actions.fetchContactRequest());
 
   try {
-    const { data } = await axios.post("/api/users/review");
+    const { data } = await axios.post("/users/review", credentials);
     dispatch(actions.fetchContactSuccess(data));
   } catch (error) {
     dispatch(actions.fetchContactError(error.message));

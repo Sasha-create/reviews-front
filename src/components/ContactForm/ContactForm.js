@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import s from "./ContactForm.module.scss";
-import fadeAlert from "../../fadeModules/fadeContactFormAlert.module.css";
 import { CSSTransition } from "react-transition-group";
 import { useDispatch } from "react-redux";
 import { contactsOperations } from "../../redux/contacts/index";
+import Button from "../Button/Button";
+import s from "./ContactForm.module.scss";
+import fadeAlert from "../../fadeModules/fadeContactFormAlert.module.css";
 
 export default function ContactForm() {
   const [email, setEmail] = useState("");
@@ -112,9 +113,9 @@ export default function ContactForm() {
               />
             </label>
             <br />
-            <button className={s.button} type="submit">
-              Send message
-            </button>
+            <div className={s.button}>
+              <Button />
+            </div>
           </form>
         </div>
       </div>
