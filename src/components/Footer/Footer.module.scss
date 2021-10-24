@@ -1,17 +1,26 @@
 @import "../../styles/variables";
 @import "../../styles/size";
 
-.footerClass {
+.Footer {
+  display: block;
+  justify-content: space-around;
+  align-items: center;
   width: auto;
   height: 200px;
   background: #fafafa;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+
   border: 1px solid #d8d8d8;
   box-sizing: border-box;
 
-  @include size(mobile-only) {
-    display: none;
+  @include size(mobile) {
+    width: auto;
+  }
+
+  @include size(tablet) {
+    // width: 225px;
+  }
+
+  @include size(desktop) {
+    // width: 557px;
   }
 }
