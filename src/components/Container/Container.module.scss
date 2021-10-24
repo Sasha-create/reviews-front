@@ -10,11 +10,12 @@
   padding: 10px 5px;
 
   @include size(tablet) {
-    padding: 20px 30px;
+    padding: 150px 0;
   }
 
   @include size(desktop) {
-    padding: 200px 150px;
+    padding-top: 179px;
+    padding-bottom: 0;
   }
 }
 // .container {
